@@ -22,7 +22,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '8.0.x'
+          dotnet-version: "8.0.x"
 
       - name: Build and analyze
         if: >-
@@ -38,6 +38,6 @@ jobs:
         env:
           DEEPSOURCE_DSN: ${{ secrets.DEEPSOURCE_DSN }}
         run: |
-          dotnet build -c Debug --verbosity minimal
-          dotnet test -c Debug --verbosity minimal --no-build --no-restore /p:CollectCoverage=true /p:CoverletOutputFormat="cobertura" /p:CoverletOutput='../Results/'
+          dotnet build -c Release --verbosity minimal
+          dotnet test -c Release --verbosity minimal --no-build --no-restore /p:CollectCoverage=true /p:CoverletOutputFormat="cobertura" /p:CoverletOutput='../Results/'
           ./bin/deepsource report --analyzer test-coverage --key csharp --value-file Tests/Results/coverage.cobertura.xml
