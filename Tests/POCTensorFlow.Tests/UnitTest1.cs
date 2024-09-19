@@ -1,6 +1,6 @@
 using FluentAssertions;
 
-namespace POCTemplate.Tests;
+namespace POCTensorFlow.Tests;
 
 public class UnitTest1
 {

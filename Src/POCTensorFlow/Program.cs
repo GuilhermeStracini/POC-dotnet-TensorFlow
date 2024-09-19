@@ -1,4 +1,4 @@
-﻿namespace POCTemplate;
+﻿namespace POCTensorFlow;
 
 internal static class Program
 {
