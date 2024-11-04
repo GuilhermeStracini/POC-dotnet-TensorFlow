@@ -1,9 +1,33 @@
 name: Fix SonarCloud Issues with Pixeebot
+name: Pixeebot Activity Dashboard
 on:
+  schedule:
+on:
+    - cron: '0 0 * * 0'
+  workflow_dispatch:
+  push:
   check_run:
+jobs:
+  activity-dashboard:
+    runs-on: ubuntu-latest
     types: [completed]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
 
+          node-version: '14'
+      - name: Install dependencies
+        run: npm install
+      - name: Run Pixeebot
+        run: npm run pixeebot
+      - name: Upload results
 permissions:
+        uses: actions/upload-artifact@v2
+        with:
+          name: pixeebot-results
   id-token: write
 
 jobs:
