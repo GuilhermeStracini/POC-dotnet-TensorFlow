@@ -10,7 +10,15 @@ on:
 jobs:
   activity-dashboard:
     runs-on: ubuntu-latest
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v1
+        with:
     types: [completed]
+          projectKey: ${{ secrets.SONARCLOUD_PROJECT_KEY }}
+          organization: ${{ secrets.SONARCLOUD_ORGANIZATION }}
+          token: ${{ secrets.SONARCLOUD_TOKEN }}
+      - name: Process SonarCloud Results
+        run: node dashboard/backend/processSonarResults.js
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
