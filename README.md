@@ -77,3 +77,11 @@ graph TD
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+## Pixeebot Activity Dashboard
+
+This repository integrates with the Pixeebot Activity Dashboard to provide real-time insights on repository activity.
+![DashList](https://docs.pixee.ai/img/pixee_dashlist.png)
+
+### Highlights
+- Nice work, you're all caught up!
+- Monitoring PRs continuously.
